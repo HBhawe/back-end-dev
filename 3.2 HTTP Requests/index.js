@@ -9,7 +9,7 @@ const port = 3000;
 app.use(morgan("combined"));
 
 app.get("/", (req, res) => {
-  res.send(`<h1>Hello</h1>`);
+  res.send(`<h2>Hello</h2>`);
 });
 
 app.get("/about", (req, res) => {
