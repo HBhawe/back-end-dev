@@ -1,4 +1,6 @@
 import express from "express";
+
+// logger middleware
 import morgan from "morgan";
 
 const app = express();
@@ -7,7 +9,7 @@ const port = 3000;
 app.use(morgan("combined"));
 
 app.get("/", (req, res) => {
-  res.send("<h1>Hello</h1>");
+  res.send(`<h1>Hello</h1>`);
 });
 
 app.get("/about", (req, res) => {
