@@ -13,20 +13,20 @@ app.get("/", (req, res) => {
   res.send("<h1>Home Page</h1>");
 });
 
-app.post("/register", (req, res) => {
+app.post("/submit", (req, res) => {
   //Do something with the data
   res.sendStatus(201);
 });
 
-app.put("/user/angela", (req, res) => {
+app.put("/user/harshal", (req, res) => {
   res.sendStatus(200);
 });
 
-app.patch("/user/angela", (req, res) => {
+app.patch("/user/harshal", (req, res) => {
   res.sendStatus(200);
 });
 
-app.delete("/user/angela", (req, res) => {
+app.delete("/user/harshal", (req, res) => {
   //Deleting
   res.sendStatus(200);
 });
