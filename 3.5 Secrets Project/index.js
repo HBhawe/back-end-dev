@@ -15,7 +15,6 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const sendResponse = function (req) {
-  //   pw is ILoveProgramming
   const password = req.body.password;
   return !(!password || password !== "ILoveProgramming");
 };
