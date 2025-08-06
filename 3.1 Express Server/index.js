@@ -5,7 +5,8 @@ const port = 3000;
 
 const html = `<!DOCTYPE html>
                         <body> 
-                          <p>This is a test</p></body>`;
+                          <p>This is a test</p>
+                          </body></html>`;
 app.get("/", (req, res) => {
   res.send(html);
 });
