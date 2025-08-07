@@ -9,15 +9,21 @@ const port = 3000;
 app.use(morgan("combined"));
 
 app.get("/", (req, res) => {
-  res.send(`<h2>Hello</h2>`);
+  res.send(
+    `<h2>Hello</h2><a href="/about"><button>About</button></a><a href="/contact"><button>Contact</button></a>`,
+  );
 });
 
 app.get("/about", (req, res) => {
-  res.send("<h1>About Me</h1><p>My name is Harshal</p>");
+  res.send(
+    '<h1>About Me</h1><p>My name is Harshal</p><a href="/"><button>Home</button></a>',
+  );
 });
 
 app.get("/contact", (req, res) => {
-  res.send("<h1>Contact Me</h1><p>Phone: +fkjgbdfklgjq374636</p>");
+  res.send(
+    '<h1>Contact Me</h1><p>Phone: +fkjgbdfklgjq374636</p><a href="/"><button>Home</button></a>',
+  );
 });
 
 app.listen(port, () => {
