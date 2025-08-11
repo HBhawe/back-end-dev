@@ -1,0 +1,19 @@
+<%- include("header.ejs")  %>
+
+<div class="app-grid">
+    <ul>
+        <% if (locals.posts.length > 0) {%>
+            <% for (let i = 0; i< posts.length ; i++ ) { %>
+                <%= console.log(posts[i]) %>
+                <li><%= posts[i]?.title %></li>
+            <% }%>
+        <% } else {%>
+            <li>No posts found</li>
+        <% }%>
+    </ul>
+
+    <%- include("newPost.ejs") %>
+</div>
+
+</body>
+</html>

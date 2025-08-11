@@ -1,0 +1,50 @@
+body, button{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.app{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+}
+
+a{
+    padding-left: 10px;
+}
+
+.new-post{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+button{
+    width: 100px;
+    height: 30px;
+}
+
+/*.app-grid{*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 1fr;*/
+/*}*/
+
+.form{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    margin-right: 25px;
+}
+
+.input-element{
+    display: grid;
+    grid-template-columns: 0.4fr 0.6fr;
+}
+
+.btn-submit{
+    display: flex;
+    justify-content: flex-end;
+}
+
