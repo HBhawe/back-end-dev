@@ -6,6 +6,7 @@ const port = 3000;
 function logger(req, res, next) {
   console.log(`Request method: ${req.method}`);
   console.log(`Request URL: ${req.url}`);
+  console.log(`Response status code: ${res.statusCode}`);
   next();
 }
 
