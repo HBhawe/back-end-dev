@@ -13,10 +13,10 @@ const port = 3000;
 const generateAdvice = function (day) {
   const info = {};
   if (day === 0 || day === 6) {
-    info.dayType = "weekend";
+    info.dayType = "the weekend";
     info.advice = ", it's time to have fun";
   } else {
-    info.dayType = "weekday";
+    info.dayType = "a weekday";
     info.advice = ", it's time to work hard";
   }
   return info;
