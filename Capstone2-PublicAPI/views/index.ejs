@@ -1,25 +1,47 @@
 <%- include("header.ejs") %>
 
 <div class="app">
-    <a href="/jokes"><button>Get random joke</button></a>
+    <div class="function-buttons">
+        <a href="/"><button>Home</button></a>
+        <a href="/jokes"><button>Get random joke</button></a>
+        <a href="/cocktails"><button>Get random cocktail</button></a>
+    </div>
     <% if (locals.joke) {%>
     <div class="joke-api">
         <h4><%= joke.setup%></h4>
-        <p><%= joke.punchline%></p>
+        <p class="punchline"><%= joke.punchline%></p>
     </div>
     <% }%>
-
-    <a href="/cocktails"><button>Get random cocktail</button></a>
+    
     <% if (locals.cocktail) {%>
     <div class="cocktail-api">
-        <h4><%= cocktail.strDrink%></h4>
-        <p>Ingredients:</p>
-        <ul>
-            <% for (let i =1; i<= 15; i++) {%>
-                <% const imgSource = cocktail.strDrinkThumb %>
-                <li><%= cocktail[`strIngredient${i}`] === null ? "" : cocktail[`strIngredient${i}`] + ": " + cocktail[`strMeasure${i}`] %> </li>
-            <% }%>
-        </ul>
+        <h3><%= cocktail.strDrink%></h3>
+        <div class="cocktails">
+            <div class="cocktail-details">
+                <div class="ingredients">
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        <% for (let i =1; i<= 15; i++) {%>
+                            <% const imgSource = cocktail.strDrinkThumb %>
+                            <% if ( cocktail[`strIngredient${i}`] !== null ) {%>
+                                <li><%= cocktail[`strIngredient${i}`] + (cocktail[`strMeasure${i}`] === null ||  cocktail[`strMeasure${i}`] === "" ? "" : ": " + cocktail[`strMeasure${i}`]) %></li>
+                            <% }%>
+                        <% }%>
+                    </ul>
+                </div>
+                
+                <div class="instructions">
+                    <h4>Instructions:</h4>
+                    <p><%= cocktail.strInstructions%></p>
+                </div>
+                
+            </div>
+            <div class="cocktail-image">
+                <% const imageSource = cocktail.strDrinkThumb + "/medium" %>
+                <img src="<%= imageSource %>" alt="<%= cocktail.strDrink %>">
+            </div>
+        </div>
+        <p class="note">Note: Unfortunately the API is from the UK, so it uses UK Imperial units</p>
     </div>
     <% }%>
 </div>

@@ -1,3 +1,57 @@
 body{
     font-family: 'Montserrat', sans-serif;
 }
+
+.joke-api{
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.punchline{
+    color: darkgreen;
+}
+
+h3, .note{
+    text-align: center;
+}
+
+.note{
+    color: red;
+}
+
+h2{
+    text-align: center;
+}
+
+.function-buttons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+footer{
+    text-align: center;
+    background: antiquewhite;
+    padding:25px;
+    margin: 25px;
+}
+
+.cocktail-api{
+    margin: 10px;
+}
+
+.cocktails{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.cocktail-image{
+    display: flex;
+    justify-content: center;   
+}
+
+.cocktail-details{
+    display: grid;
+}

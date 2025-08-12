@@ -31,7 +31,6 @@ app.get("/cocktails", async (req, res) => {
     `https://www.thecocktaildb.com/api/json/v1/1/random.php`,
   );
   let data = JSON.stringify(result.data.drinks[0]);
-  console.log(JSON.parse(data));
   res.render("index.ejs", { cocktail: JSON.parse(data) });
 });
 
