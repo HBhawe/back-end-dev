@@ -19,19 +19,26 @@ app.get("/", (req, res) => {
 });
 
 app.get("/jokes", async (req, res) => {
-  const result = await axios.get(
-    `https://official-joke-api.appspot.com/random_joke`,
-  );
-
-  res.render("index.ejs", { joke: result.data });
+  try {
+    const result = await axios.get(
+      `https://official-joke-api.appspot.com/random_joke`,
+    );
+    res.render("index.ejs", { joke: result.data });
+  } catch (error) {
+    console.error(error.message);
+  }
 });
 
 app.get("/cocktails", async (req, res) => {
-  const result = await axios.get(
-    `https://www.thecocktaildb.com/api/json/v1/1/random.php`,
-  );
-  let data = JSON.stringify(result.data.drinks[0]);
-  res.render("index.ejs", { cocktail: JSON.parse(data) });
+  try {
+    const result = await axios.get(
+      `https://www.thecocktaildb.com/api/json/v1/1/random.php`,
+    );
+    let data = JSON.stringify(result.data.drinks[0]);
+    res.render("index.ejs", { cocktail: JSON.parse(data) });
+  } catch (error) {
+    console.error(error.message);
+  }
 });
 
 //LISTENER
