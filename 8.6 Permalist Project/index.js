@@ -32,7 +32,11 @@ const getItems = async function () {
 // Add new item
 const insertItem = async (item) => {
   try {
-    await db.query(`Insert into items (title) values ($1)`, [item]);
+    const creationDate = new Date();
+    await db.query(`Insert into items (title, creationdate) values ($1, $2)`, [
+      item,
+      creationDate,
+    ]);
   } catch (error) {
     console.log(error);
   }
