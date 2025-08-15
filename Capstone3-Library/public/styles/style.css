@@ -3,6 +3,10 @@ body{
     background-color: #f5f5f5;
 }
 
+.new-book{
+    margin-left: 40px;
+}
+
 footer, .header{
     text-align: center;
     border-radius: 5px;
@@ -12,10 +16,50 @@ footer, .header{
     padding:10px;
 }
 
+.book-cover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .form-group{
     display: grid;
     grid-template-rows: repeat(6,1fr);
     justify-content: center;
+}
+
+.new-button{
+    border: 2px solid green;
+    color: green;
+}
+
+.new-button:hover{
+    background-color: #eaf4ea;
+}
+
+button, input[type=submit]{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.btn-delete{
+    border: 2px solid red;
+    color: red;
+}
+
+.btn-delete:hover{
+    background-color: #ffeaea;
+}
+
+.btn-edit{
+    border: 2px solid orange;
+    color: orange;
+}
+
+.btn-edit:hover{
+    background-color: #fff7ea;
 }
 
 .input-group{
@@ -41,7 +85,7 @@ input[type=number]{
     justify-content: center;
 }
 
-h4{
+.new-book-heading{
     text-align: center;
 }
 
@@ -54,7 +98,7 @@ li{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     border-bottom: 2px solid #4e00c2;
-    padding-bottom: 5px;
+    padding: 5px 0 5px 0;
 }
 
 .book-actions{

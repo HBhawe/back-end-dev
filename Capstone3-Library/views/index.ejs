@@ -2,25 +2,29 @@
 
 
 <div class="book-list">
-    <a href="/new"><button>New book</button></a>
+    <div class="new-book">
+        <a href="/new"><button class="new-button">&plus; New book</button></a>
+    </div>
     <ul>
         <% books.forEach((book) => {%>
             <li id="<%= book.id%>">
-                <img src="https://covers.openlibrary.org/b/olid/<%=book.olid%>-M.jpg">
+                <div class="book-cover">
+                    <img src="https://covers.openlibrary.org/b/olid/<%=book.olid%>-M.jpg">
+                </div>
                 <div>
-                    <h5><%= book.name%></h5>
+                    <h4><%= book.name%></h4>
                     <p>Author: <%= book.author%></p>
                     <p>Date Read: <%= book.read_date.toDateString() %></p>
                     <p>Rating: <%= book.rating%>/5</p>
-                    <p><%= book.note%></p>
+                    <div><span>Note: </span><p><%= book.note%></p></div>
                     <div class="book-actions">
                         <form method="post" action="/editBook">
                             <input type="hidden" name="id" value="<%= book.id %>">
-                            <input type="submit" value="Edit">
+                            <input type="submit" value="Edit" class="btn-edit">
                         </form>
                         <form method="post" action="/delete">
                             <input type="hidden" name="id" value="<%= book.id %>">
-                            <input type="submit" value="Delete">
+                            <input type="submit" value="Delete" class="btn-delete">
                         </form>
                     </div>
                 </div>

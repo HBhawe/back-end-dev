@@ -26,6 +26,8 @@ app.use(morgan("common"));
 let books = [];
 
 // FUNCTIONS
+
+// get books
 const getBooks = async function () {
   try {
     const result = await db.query("SELECT * FROM books order by id asc");
@@ -35,25 +37,30 @@ const getBooks = async function () {
   }
 };
 
+// add a book
 const addBook = async function (title, author, dateRead, olid, note, rating) {
   try {
+    const creationDate = new Date();
     const result = await db.query(
-      `Insert into books (name, author, read_date, olid, note, rating) VALUES ($1,$2,$3,$4,$5, $6) returning *`,
-      [title, author, dateRead, olid, note, rating],
+      `Insert into books (name, author, read_date, olid, note, rating, creation_date) VALUES ($1,$2,$3,$4,$5, $6, $7) returning *`,
+      [title, author, dateRead, olid, note, rating, creationDate],
     );
   } catch (error) {
     console.log(error);
   }
 };
 
-const updateBook = async function (
-  title,
-  author,
-  dateRead,
-  olid,
-  note,
-  rating,
-) {};
+// update an existing book (only date, note, rating)
+const updateBook = async function (dateRead, note, rating, id) {
+  try {
+    await db.query(
+      `UPDATE books SET read_date = $1, note = $2, rating = $3  WHERE id = $4`,
+      [dateRead, note, rating, id],
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const deleteBook = async function (id) {
   try {
@@ -92,13 +99,12 @@ app.post("/editBook", async (req, res) => {
 app.post("/edit/:id", async (req, res) => {
   const { dateRead, note, rating } = req.body;
   const id = parseInt(req.params.id);
-  console.log(dateRead, note, rating, id);
+  await updateBook(dateRead, note, rating, id);
   res.redirect("/");
 });
 
 app.post("/delete", async (req, res) => {
   const id = parseInt(req.body.id);
-  console.log(id);
   await deleteBook(id);
   res.redirect("/");
 });

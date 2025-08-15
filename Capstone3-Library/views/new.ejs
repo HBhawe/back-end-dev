@@ -3,7 +3,7 @@
 
 <% if (locals.new) {%>
 <div class="new-book-form">
-    <h4>New book</h4>
+    <h4 class="new-book-heading">New book</h4>
     <form action="/new" method="POST">
         <div class="form-group">
             <div class="input-group">
@@ -46,7 +46,7 @@
 
 <% } else { %>
     <div class="edit-book-form">
-        <h4>New book</h4>
+        <h4 class="new-book-heading">Edit book</h4>
         <form action="/edit/<%=book.id%>" method="POST">
             <div class="form-group">
                 <div class="input-group">
@@ -59,7 +59,14 @@
                 </div>
                 <div class="input-group">
                     <label for="dateRead">Date Read:</label>
-                    <input type="date" name="dateRead" id="dateRead">
+                    <% const date  =  book.read_date %>
+                    <% if (date) { %>
+                        <% const formattedDate = date.toLocaleDateString('sv-se') %>
+                        <% console.log(formattedDate)%>
+                        <input type="date" name="dateRead" id="dateRead" value="<%= formattedDate %>">
+                    <% } else { %>
+                        <input type="date" name="dateRead" id="dateRead">
+                    <% } %>
                 </div>
                 <div class="input-group">
                     <label for="rating">Rating: (1 is lowest, 5 is highest)</label>
