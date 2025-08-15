@@ -1,0 +1,31 @@
+<%- include('partials/header.ejs')%>
+
+
+<div class="book-list">
+    <a href="/new"><button>New book</button></a>
+    <ul>
+        <% books.forEach((book) => {%>
+            <li id="<%= book.id%>">
+                <img src="https://covers.openlibrary.org/b/olid/<%=book.olid%>-M.jpg">
+                <div>
+                    <h5><%= book.name%></h5>
+                    <p>Author: <%= book.author%></p>
+                    <p>Date Read: <%= book.read_date.toDateString() %></p>
+                    <p>Rating: <%= book.rating%>/5</p>
+                    <p><%= book.note%></p>
+                    <div class="book-actions">
+                        <form method="post" action="/editBook">
+                            <input type="hidden" name="id" value="<%= book.id %>">
+                            <input type="submit" value="Edit">
+                        </form>
+                        <form method="post" action="/delete">
+                            <input type="hidden" name="id" value="<%= book.id %>">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </div>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
+</div>
+<%- include('partials/footer.ejs')%>
