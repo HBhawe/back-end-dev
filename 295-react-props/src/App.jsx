@@ -10,7 +10,8 @@ function App() {
         imgSrc={contact.imgURL}
         phone={contact.phone}
         email={contact.email}
-        key={contact.name}
+        key={contact.id}
+        id={contact.id}
       />
     );
   };
