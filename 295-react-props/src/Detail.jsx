@@ -1,3 +1,3 @@
-export function Paragraph({ text }) {
+export function Detail({ text }) {
   return <p className="info">{text}</p>;
 }
