@@ -1,0 +1,26 @@
+{
+	"name": "293-keeper-app-part-1-challenge",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"lint": "biome check --write",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"react": "^19.2.0",
+		"react-dom": "^19.2.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.11",
+		"@types/react": "^19.2.5",
+		"@types/react-dom": "^19.2.3",
+		"@vitejs/plugin-react": "^5.1.1",
+		"vite": "npm:rolldown-vite@7.2.5"
+	},
+	"overrides": {
+		"vite": "npm:rolldown-vite@7.2.5"
+	}
+}
