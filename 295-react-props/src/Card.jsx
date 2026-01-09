@@ -1,4 +1,5 @@
-import Avatar from "./Avatar.jsx";
+import { Avatar } from "./Avatar.jsx";
+import { Paragraph } from "./Paragraph.jsx";
 
 export function Card({ name, imgSrc, phone, email }) {
   return (
@@ -8,8 +9,8 @@ export function Card({ name, imgSrc, phone, email }) {
         <Avatar imgSrc={imgSrc} />
       </div>
       <div className="bottom">
-        <p className="info">{phone}</p>
-        <p className="info">{email}</p>
+        <Paragraph text={phone} />
+        <Paragraph text={email} />
       </div>
     </div>
   );
